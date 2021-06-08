@@ -1,9 +1,30 @@
 <?php
-//ini_set('session.gc_maxlifetime', 3600);
-
+//ini_set('session.gc_maxlifetime', 10);
 session_start();
-echo $_POST['login'];
-echo $_POST['pass'];
+
+if ((isset($_POST['login']) && strlen($_POST['login'])>1) && (isset($_POST['pass']) && strlen($_POST['pass'])>1)) {
+    require "db.php";
+    $user = $_POST['login'];
+    $pass = $_POST['pass'];
+
+    $selectQuery = "SELECT * FROM users where login='${user}'";
+    $result  = mysqli_query($db,$selectQuery);
+    $row = mysqli_fetch_assoc($result);
+    if ($row && password_verify($pass,$row['pass'])) {
+
+        $_SESSION['user'] = $user;
+        $_SESSION['pass'] = $pass;
+
+        header("location: psReports.php");
+        exit();
+    } else {echo "Brak usera or bad pass";
+        session_destroy();
+    };
+
+} else {echo "Proszę o Login oraz Pass dla PSreports";
+    session_destroy();
+}
+
 
 ?>
 <!doctype html>
