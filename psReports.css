@@ -1,0 +1,46 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.content {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#cheks {
+    /*width: 800px;*/
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#cheks span {
+    margin: 10px 0 ;
+    font-size: 2em;
+}
+
+input[type=checkbox] {
+    transform: scale(1.5);
+
+}
+
+#selectSection {
+    display: flex;
+}
+
+.selector {
+    background-color: #e7e4e4;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+#submit {
+
+    padding: 10px;
+    font-size: 2em;
+}
