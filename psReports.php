@@ -5,7 +5,7 @@ if (!(isset($_SESSION['user']))) {
     header("location: index.php");
     exit();
 }
-
+$user = $_SESSION['user'];
 ?>
 <!doctype html>
 <html lang="pl">
@@ -18,6 +18,12 @@ if (!(isset($_SESSION['user']))) {
     <title>Document</title>
 </head>
     <body>
+    <dev class="header">
+
+        <div class="dump"></div><div class="title">Hej <?php echo $user?></div> <div class="logof"><input type="button" value="LogOff" id="logOffbtn"></div>
+
+
+    </dev>
 
         <div class="content">
 
@@ -27,13 +33,19 @@ if (!(isset($_SESSION['user']))) {
 
                 <div class="selector" id="primarySelect">
 
-                <span>
-                <input type="checkbox" name="csv[]" value="name" id="name">
+             <span>
+                <input type="checkbox" name="dumpCsv" value="name" id="name" checked="true" disabled="true">
                 <label for="name">name</label>
             </span>
+
+<!--            <span>-->
+                <input type="checkbox" name="csv[]" value="name" id="name" checked="true" style="display: none">
+<!--                <label for="name">name</label>-->
+<!--            </span>-->
+
             <span>
                 <input type="checkbox" name="csv[]" value="samaccountname" id="login">
-                <label for="login">login</label>
+                <label for="login">Login</label>
             </span>
             <span>
                 <input type="checkbox" name="csv[]" value="employeeid" id="Eid">
@@ -57,7 +69,7 @@ if (!(isset($_SESSION['user']))) {
             </span>
             <span>
                 <input type="checkbox" name="csv[]" value="department" id="dzial">
-                <label for="dzial">dział</label>
+                <label for="dzial">Dział</label>
             </span>
             <span>
                 <input type="checkbox" name="csv[]" value="title" id="title">
@@ -67,6 +79,12 @@ if (!(isset($_SESSION['user']))) {
                 <input type="checkbox" name="csv[]" value="office" id="biuro">
                 <label for="biuro">Biuro</label>
             </span>
+
+            <span>
+                <input type="checkbox" name="csv[]" value="lastlogondate" id="lastlogon">
+                <label for="lastlogon">Last Logon</label>
+            </span>
+
             </div>
                 <div class="selector"id="altSelect">
             <span>
@@ -86,12 +104,12 @@ if (!(isset($_SESSION['user']))) {
             </span>
                 </div>
                 <div class="selector" id="dateFrom">
-                    <input type="date" name="dateFrom">
+                    <input type="date" name="dateFrom" value="2021-01-01" id="datePick">
                     <label for="">Ostatnie Logowanie</label>
                 </div>
                 <div class="selector "id="ou">
                    <span>
-                <input type="radio" name="ou" value="ouCentrala">
+                <input type="radio" name="ou" value="ouCentrala" checked="true">
                 <label>Centrala</label>
 
             </span>
@@ -113,7 +131,10 @@ if (!(isset($_SESSION['user']))) {
     </body>
 <script>
     let submit = document.querySelector('#submit');
-
+    let logOffBtn = document.querySelector('#logOffbtn');
+    logOffBtn.addEventListener('click',()=>{
+        window.location.href ='logoff.php';
+    })
 
 </script>
 </html>

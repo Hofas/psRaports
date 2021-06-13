@@ -1,0 +1,59 @@
+body {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+    background-size: auto;
+    background: #032456 url("back.png") no-repeat center;
+
+}
+
+.box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: auto;
+    height: 300px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0,0,0,1);
+        padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.box p {
+
+    font-size: 2em;
+    color: white;
+    text-shadow: 0 0 20px black;
+
+}
+.box input {
+    position: absolute;
+    bottom:  50px;
+    font-size: 2em;
+    padding: 20px 40px;
+    background: none;
+    text-shadow: 0 0 20px black;
+    color: white;
+    border: 2px solid white;
+    /*border-radius: 40%;*/
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.box input:hover {
+    border-radius: 40%;
+    font-size: 2.5em;
+    background: rgba(255,255,255,0.5);
+    box-shadow: 0 0 20px yellow;
+}
+
+.box input:hover ~.box {
+
+    backdrop-filter: blur(10px);
+}

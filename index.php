@@ -17,11 +17,11 @@ if ((isset($_POST['login']) && strlen($_POST['login'])>1) && (isset($_POST['pass
 
         header("location: psReports.php");
         exit();
-    } else {echo "Brak usera or bad pass";
+    } else {$errorLogin =  "Brak usera or bad pass";
         session_destroy();
     };
 
-} else {echo "Proszę o Login oraz Pass dla PSreports";
+} else {$errorLogin =  "Proszę o Login oraz Pass";
     session_destroy();
 }
 
@@ -40,7 +40,9 @@ if ((isset($_POST['login']) && strlen($_POST['login'])>1) && (isset($_POST['pass
 <body>
     <div class="container">
         <form action="" method="post">
-
+            <p><?php if (isset($errorLogin)) {echo $errorLogin;
+                unset($errorLogin);
+            }?></p>
             <p>Login:</p><input type="text" name="login">
             <p>Pass:</p><input type="password" name="pass">
             <input type="submit" value="LogIn">

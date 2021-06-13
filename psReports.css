@@ -4,18 +4,44 @@
     box-sizing: border-box;
 }
 
+body {
+    background-size: auto;
+    background: #032456 url("back.png") no-repeat center;
+    height: 100vh;
+
+}
+
 .content {
     width: 100%;
-    height: 100vh;
+    /*height: 100vh;*/
     display: flex;
     align-items: center;
     justify-content: center;
+    /*border: 2px solid red;*/
 }
 #cheks {
-    /*width: 800px;*/
+    margin-top: 50px;
     height: auto;
     display: flex;
     flex-direction: column;
+    box-shadow: 15px 15px 15px black;
+    position: relative;
+
+}
+
+#cheks::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    bottom: -5px;
+    left: -5px;
+    right: -5px;
+    filter: blur(10px);
+    z-index: -100;
+    background-repeat: no-repeat;
+    background-image: url("back.png") ;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 #cheks span {
@@ -24,23 +50,84 @@
 }
 
 input[type=checkbox] {
-    transform: scale(1.5);
-
+    transform: scale(2);
+    margin-right: 10px;
 }
 
 #selectSection {
     display: flex;
+    position: relative;
+
 }
 
 .selector {
-    background-color: #e7e4e4;
+    /*background-color: #e7e4e4;*/
+    color: white;
     margin: 10px;
     display: flex;
     flex-direction: column;
     padding: 10px;
 }
-#submit {
 
+
+
+#submit {
+    background: none;
     padding: 10px;
     font-size: 2em;
+    cursor: pointer;
+    color:white;
+    text-shadow: 2px 2px 2px black;
+    /*border: 2px solid white;*/
+    letter-spacing: 5px;
+    border: none;
+    transition: 1.5s;
+}
+
+#submit:hover{
+    letter-spacing: 55px;
+    /*font-size: 3em;*/
+    color: red;
+}
+
+#datePick {
+    appearance: none;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+#dateFrom label {
+    font-size: 1.5em;
+
+}
+
+.header {
+   display: flex;
+    justify-content: space-between;
+    color: white;
+    font-size: 2em;
+    margin-top: 20px;
+}
+.title {
+    padding: 20px;
+    font-size: 2em;
+}
+.logof  input{
+    padding: 5px 10px;
+    font-size: 1.2em;
+    margin: 10px;
+    cursor: pointer;
+    background: none;
+    color: white;
+    border: none;
+
+    transition: 1.4s;
+}
+
+.logof  input:hover {
+    transform: scale(1.1);
+    transform-origin: right;
+    color: red;
+
+
 }
